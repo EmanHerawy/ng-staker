@@ -75,6 +75,7 @@
           </div>
 
           <mat-button-toggle-group
+            #group="matButtonToggleGroup"
             name="restake-options"
             aria-label="Restake options"
             class="mt-2">
@@ -85,6 +86,24 @@
             <mat-button-toggle
               value="lock">Lock for</mat-button-toggle>
           </mat-button-toggle-group>
+
+          <mat-form-field
+            *ngIf="group.value == 'lock'"
+            class="example-full-width mt-4 col-md-6">
+            <mat-label>Enter release period</mat-label>
+            <input
+              matInput
+              formControlName="worker"
+              placeholder="0">
+            <mat-error *ngIf="myForm.get('worker').hasError('required')">
+              Release period is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <div
+            *ngIf="group.value != 'lock'"
+            style="height: 100.5px;">
+          </div>
 
           <!-- <button
             (click)="restake()"
@@ -103,12 +122,12 @@
           </button> -->
 
           <button
-            (click)="setWorker()"
+            (click)="restake()"
             mat-raised-button
             color="primary"
             [disabled]="!(myForm.valid)"
             class="btn btn-rounded pt-1 pb-1 pl-5 pr-5 mt-4"
-            style="margin-top: 154px !important;">
+            style="margin-top: 53px !important;">
             Confirm
           </button>
 
