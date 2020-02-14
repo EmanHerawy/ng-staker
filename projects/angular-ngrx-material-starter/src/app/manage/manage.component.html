@@ -39,13 +39,21 @@
             (click)="detachWorker()"
             mat-raised-button color="primary">
           </button> -->
-          <mat-checkbox>Detach worker?</mat-checkbox>
 
-          <div class="text-center mt-2">
-            <small class="text-primary">or</small>
-          </div>
+          <mat-button-toggle-group
+            #group2="matButtonToggleGroup"
+            name="detach-options"
+            aria-label="Detach options"
+            class="mt-2">
+            <mat-button-toggle
+              value="detach">Detach</mat-button-toggle>
+            <mat-button-toggle
+              value="replace">Replace</mat-button-toggle>
+          </mat-button-toggle-group>
 
-          <mat-form-field class="example-full-width">
+          <mat-form-field
+            *ngIf="group2.value == 'replace'"
+            class="example-full-width mt-4 col-md-10">
             <mat-label>Set new worker address</mat-label>
             <input matInput formControlName="worker" placeholder="x0">
             <mat-error *ngIf="myForm.get('worker').hasError('required')">
@@ -53,12 +61,23 @@
             </mat-error>
           </mat-form-field>
 
+          <div
+            *ngIf="group2.value != 'replace'"
+            style="height: 100.5px;">
+          </div>
+
+          <!-- <mat-checkbox>Detach worker?</mat-checkbox>
+
+          <div class="text-center mt-2">
+            <small class="text-primary">or</small>
+          </div> -->
+
           <button
             (click)="setWorker()"
             mat-raised-button color="primary"
             [disabled]="!(myForm.valid)"
             class="btn btn-rounded pt-1 pb-1 pl-5 pr-5 mt-4"
-            style="margin-top: 110px !important;">
+            style="margin-top: 90px !important;">
             Confirm
           </button>
 
