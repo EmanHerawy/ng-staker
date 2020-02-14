@@ -246,3 +246,61 @@ h2 {
     margin: 0 auto 40px auto;
   }
 }
+
+table {
+  width: 100%;
+  font-size: 0.7222em;
+}
+
+// thead {
+//   tr {
+//     td {
+//       // padding: 1em 3em;
+//       padding:0.5em 15px;
+//     }
+
+//     &:first-child {
+//       td:first-child {
+//         border-radius: 4em 0 0 4em;
+//       }
+
+//       td:last-child {
+//         border-radius: 0 4em 4em 0;
+//       }
+//     }
+//   }
+// }
+
+td {
+        // padding: 1em 3em;
+        padding:0.5em 10px;
+        width: 300px;
+      }
+
+
+      .text-overflow {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100px;
+        text-overflow: ellipsis;
+      }
+
+      .cell-4 {
+        white-space: nowrap;
+      }
+
+.cell {
+  max-width: 50px; /* tweak me please */
+  white-space : nowrap;
+  overflow : hidden;
+}
+
+.expand-small-on-hover:hover {
+  max-width : 200px;
+  text-overflow: ellipsis;
+}
+
+.expand-maximum-on-hover:hover {
+  max-width : initial;
+}

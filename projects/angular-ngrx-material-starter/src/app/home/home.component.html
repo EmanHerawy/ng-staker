@@ -50,7 +50,29 @@
           <div class="text-center">
             <small>Active stakes:</small>
           </div>
-          <anms-stake-list class="container" [data]="stakeList"></anms-stake-list>
+
+          <table class="container mt-1 mb-5 text-center">
+            <thead>
+                <tr>
+                    <td class="cell-4"><dt>Stake #</dt></td>
+                    <td class="cell-4"><dt>STAKER</dt></td>
+                    <td class="cell-4"><dt>WORKER</dt></td>
+                    <td class="cell-4"><dt>VALUE</dt></td>
+                    <td class="cell-4"><dt>DURATION</dt></td>
+                    <!-- <td>Ending</td> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of subStakeList; let i=index">
+                    <td class="cell-4"><span>{{i}}</span></td>
+                    <td class="cell-4"> <span class="text-overflow">{{item.staker}}</span></td>
+                    <td class="cell-4"> <span class="text-overflow">{{item.worker}}</span></td>
+                    <td class="cell-4"> <span>{{item.value}} NU</span></td>
+                    <td class="cell-4"> <span>{{item.periods}} periods</span></td>
+                    <!-- <td>22 Jan 2021</td> -->
+                </tr>
+            </tbody>
+        </table>
 
         </div>
 

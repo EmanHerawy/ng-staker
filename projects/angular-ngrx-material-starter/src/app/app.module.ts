@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app/app.component';
 import { StakeComponent } from './stake/stake.component';
-import { StakeListComponent } from './stake-list/stake-list.component';
 import { WalletPopupComponent } from './wallet-popup/wallet-popup.component';
 import { UtilModule } from './util/util.module';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -35,7 +34,7 @@ MatDialogModule,
   ],  entryComponents: [
     AgreementComponent,WalletPopupComponent
   ],
-  declarations: [AppComponent,HomeComponent, StakeComponent, StakeListComponent, WalletPopupComponent,  AgreementComponent, ManageComponent, WithdrawComponent],
+  declarations: [AppComponent,HomeComponent, StakeComponent, WalletPopupComponent,  AgreementComponent, ManageComponent, WithdrawComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

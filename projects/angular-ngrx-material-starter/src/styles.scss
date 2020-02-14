@@ -29,7 +29,6 @@
 @import './app/features/examples/theming/child/child.component.scss-theme';
 @import './app/features/examples/examples/examples.component.scss-theme';
 @import './app/stake/stake.component.scss-theme';
-@import './app/stake-list/stake-list.component.scss-theme';
 @import './app/wallet-popup/wallet-popup.component.scss-theme';
 @import './app/manage/manage.component.scss-theme';
 
@@ -46,7 +45,6 @@
   @include anms-child-component-theme($theme);
   @include anms-examples-component-theme($theme);
   @include anms-stake-component-theme($theme);
-  @include anms-stake-list-component-theme($theme);
   @include anms-wallet-popup-component-theme($theme);
   @include anms-manage-component-theme($theme);
 }
