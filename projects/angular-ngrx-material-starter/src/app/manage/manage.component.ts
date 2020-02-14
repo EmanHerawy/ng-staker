@@ -19,13 +19,16 @@ export class ManageComponent implements OnInit {
 @Output()onProlong= new EventEmitter<any>();
 @Input()data=[];
 @Input()isReStakeLocked;
+public winddownStatus: boolean;
   constructor(private fb: FormBuilder ) {
     this.myForm = this.createWorkerForm();
     this.prolongForm = this.createProlongForm();
     this.dividForm = this.createDividForm();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.winddownStatus = false;
+  }
   createWorkerForm() {
     return this.fb.group({
       worker: [
@@ -63,6 +66,10 @@ export class ManageComponent implements OnInit {
     });
   }
 
+  winddownStatusChanged(status) {
+    this.winddownStatus = status.value;
+  }
+
 setWorker(){
   this.onSetWorker.emit(this.myForm.value);
 
@@ -72,7 +79,7 @@ detachWorker(){
 
 }
 winddown(){
-  this.onWinddown.emit();
+  this.onWinddown.emit(this.winddownStatus);
 
 }
 restake(){

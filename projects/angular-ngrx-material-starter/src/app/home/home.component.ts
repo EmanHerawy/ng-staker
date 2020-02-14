@@ -102,9 +102,9 @@ const tx = await this.web3.setWorker(value.worker);
   async detachWorker(){
 const tx = await this.web3.setWorker("0x0000000000000000000000000000000000000000");
   }
-  async winddown(){
+  async winddown(status){
     // staker can enble it by setting it to true or disable by false
-const tx = await this.web3.setWindDown(true);
+const tx = await this.web3.setWindDown(status);
   }
   async getReStakeLockedStatus(){
 this.isReStakeLocked = await this.web3.isReStakeLocked(this.account);

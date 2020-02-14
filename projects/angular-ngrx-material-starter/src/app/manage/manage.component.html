@@ -164,13 +164,16 @@
           </div>
 
           <mat-button-toggle-group
+            [(value)]="winddownStatus"
             name="winddown-options"
             aria-label="Wind-down options"
             class="mt-2">
             <mat-button-toggle
-              value="on">On</mat-button-toggle>
+              [value]="true"
+              (change)="winddownStatusChanged($event)">On</mat-button-toggle>
             <mat-button-toggle
-              value="off">Off</mat-button-toggle>
+              [value]="false"
+              (change)="winddownStatusChanged($event)">Off</mat-button-toggle>
           </mat-button-toggle-group>
 
           <!-- <button
@@ -180,10 +183,9 @@
           </button> -->
 
           <button
-            (click)="setWorker()"
+            (click)="winddown()"
             mat-raised-button
             color="primary"
-            [disabled]="!(myForm.valid)"
             class="btn btn-rounded pt-1 pb-1 pl-5 pr-5 mt-4"
             style="margin-top: 154px !important;">
             Confirm
