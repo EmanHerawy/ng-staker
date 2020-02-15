@@ -21,6 +21,7 @@ export class ManageComponent implements OnInit {
 @Output()onProlong= new EventEmitter<any>();
 @Input()data=[];
 @Input()isReStakeLocked;
+@Input()isReStakeDisabled;
 public detachStatus: any;
 public restakeStatus: any;
 public winddownStatus: boolean;

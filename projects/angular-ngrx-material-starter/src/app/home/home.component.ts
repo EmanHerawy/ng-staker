@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   subStakeIndex;
   subStakeList: any[];
   isReStakeLocked: any;
+  isReStakeDisabled: any;
 
   TokenToWithdraw: number;
 
@@ -73,7 +74,8 @@ export class HomeComponent implements OnInit {
   console.log('fechSmartcontract');
 
 const stakes =    await this.web3.getStakerInfo(this.account);
-this.isReStakeLocked = stakes['reStakeDisabled']
+this.isReStakeLocked = stakes['isReStakeLocked']
+this.isReStakeDisabled = stakes['reStakeDisabled']
 this.stakeList = {
 worker: stakes['worker'],
 staker: this.account,
@@ -87,7 +89,7 @@ this.TokenToWithdraw = stakes['value'] - Math.max(parseFloat(lock1.toString()), 
 console.log(this.TokenToWithdraw, 'TokenToWithdraw');
 
 await this.getIndex()
-//  await this.getReStakeLockedStatus()
+ await this.getReStakeLockedStatus()
 }
   ngOnInit() {}
 
@@ -107,9 +109,8 @@ const tx = await this.web3.setWorker("0x0000000000000000000000000000000000000000
 const tx = await this.web3.setWindDown(status);
   }
   async getReStakeLockedStatus(){
-this.isReStakeLocked = await this.web3.isReStakeLocked(this.account);
-console.log(this.isReStakeLocked, 'status');
-
+    this.isReStakeLocked = await this.web3.isReStakeLocked(this.account);
+    console.warn(this.isReStakeLocked, ' restake status');
   }
   async getIndex(){
     this.subStakeList = [];
