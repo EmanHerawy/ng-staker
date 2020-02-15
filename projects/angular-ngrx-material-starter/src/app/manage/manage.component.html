@@ -8,7 +8,6 @@
           <mat-form-field class="example-full-width">
             <mat-label>Enter worker address</mat-label>
             <input matInput formControlName="worker" placeholder="x0">
-            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
             <mat-error *ngIf="myForm.get('worker').hasError('required')">
               Address is <strong>required</strong>
             </mat-error>
@@ -204,7 +203,6 @@
           <mat-form-field class="col-md-8">
             <mat-label>Index</mat-label>
             <input matInput formControlName="index" placeholder="0">
-            <mat-hint>Errors appear instantly!</mat-hint>
 
             <mat-error *ngIf="prolongForm.get('index').hasError('required')">
               Index is <strong>required</strong>
@@ -214,7 +212,6 @@
           <mat-form-field class="col-md-8">
             <mat-label>Prolong duration (periods)</mat-label>
             <input matInput formControlName="periods" placeholder="0">
-            <mat-hint>Errors appear instantly!</mat-hint>
 
             <mat-error *ngIf="prolongForm.get('periods').hasError('required')">
               Periods is <strong>required</strong>
@@ -284,7 +281,6 @@
           <mat-form-field class="col-md-6">
             <mat-label>Substake index</mat-label>
             <input matInput formControlName="index" placeholder="0">
-            <mat-hint>Errors appear instantly!</mat-hint>
 
             <mat-error *ngIf="dividForm.get('index').hasError('required')">
               Index is <strong>required</strong>
@@ -293,7 +289,6 @@
           <mat-form-field class="col-md-6">
             <mat-label>Period</mat-label>
             <input matInput formControlName="periods" placeholder="0">
-            <mat-hint>Errors appear instantly!</mat-hint>
 
             <mat-error *ngIf="dividForm.get('periods').hasError('required')">
               Periods is <strong>required</strong>
@@ -302,7 +297,6 @@
           <mat-form-field class="col-md-6">
             <mat-label>Amount</mat-label>
             <input matInput formControlName="amount" placeholder="0">
-            <mat-hint>Errors appear instantly!</mat-hint>
 
             <mat-error *ngIf="dividForm.get('periods').hasError('required')">
               Amount is <strong>required</strong>

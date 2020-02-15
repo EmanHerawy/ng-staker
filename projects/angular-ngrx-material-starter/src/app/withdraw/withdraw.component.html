@@ -10,7 +10,6 @@
     <mat-form-field class="example-full-width col-md-8 mt-4">
       <mat-label>Withdraw amount (NU):</mat-label>
       <input matInput formControlName="amount" placeholder="0.0">
-      <mat-hint>Errors appear instantly!</mat-hint>
 
       <mat-error *ngIf="myForm.get('amount').hasError('required')">
         Amount is <strong>required</strong>
