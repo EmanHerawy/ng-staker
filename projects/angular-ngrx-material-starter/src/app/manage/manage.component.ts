@@ -34,9 +34,9 @@ public winddownStatus: boolean;
   }
 
   ngOnInit() {
-    this.detachStatus = 'detach';
-    this.restakeStatus = false;
-    this.winddownStatus = false;
+    this.detachStatus = undefined;
+    this.restakeStatus = undefined;
+    this.winddownStatus = undefined;
   }
   createWorkerForm() {
     return this.fb.group({
