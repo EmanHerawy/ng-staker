@@ -25,7 +25,7 @@ export class Web3Service {
     console.log(staking_escrow_abi,'staking_escrow_abi');
     // console.log(staking_escrow_abi,staking_escrow_address,token_address,token_abi,);
     // console.log(staking_escrow_abi,staking_escrow_address,token_address,token_abi,);
-    
+
     // window.addEventListener('load', (event) => {
     //  // this.web3 =  this.bootstrapWeb3();//==null?alert("you a"):null;
 
@@ -51,13 +51,13 @@ export class Web3Service {
 public async  connect(){
    this.web3=      await  this.bootstrapWeb3();
    console.log(this.web3,'this.web3');
-   
+
 if(!this.web3){
-  // alert that metamsk no installed 
+  // alert that metamsk no installed
   return null;
 }else{
 this.init_contracts()
- 
+
  await this.init_ui()
  return true;
 }
@@ -65,7 +65,7 @@ this.init_contracts()
   private async  bootstrapWeb3() {
     // console.log(window.ethereum,'window.ethereum');
     // console.log(window.Web3.currentProvider,'window.ethereum');
-    
+
       if ( typeof window.ethereum !== 'undefined') {
           const web3 = new Web3(window.ethereum);
           try {
@@ -78,14 +78,14 @@ this.init_contracts()
             return null;
           }
         }
-        
+
         // Legacy dapp browsers...
         else if (typeof window.Web3 !== 'undefined') {
           // Use Mist/MetaMask's provider.
-         
+
           window.isMetaMask = true;
           console.log(window.Web3.currentProvider,'window.web3.currentProvider');
-          
+
           const web3 = new Web3(window.Web3.currentProvider);
           console.log('Injected web3 detected.');
           return web3;
@@ -124,7 +124,7 @@ this.init_contracts()
         // User denied signature
         resolve( false);
       }
-     
+
       resolve( result.result);
 
     });
@@ -166,7 +166,7 @@ private watchAccountUnlock() {
 
   async  approveAndCall(amount,from,duration) {
     console.log('approve');
-    
+
       return new Promise(resolve => {
         //this address is for dispatcher to fix the issue
          this. token.methods.approveAndCall("0xdC098916291e1ef683A4f469fa32025c872194df", amount,duration)
@@ -179,7 +179,7 @@ private watchAccountUnlock() {
      const data= await   this.staking_escrow.methods.getLockedTokens(address, duration)
           .call();
           console.log(data,'getLockedTokens');
-          
+
           resolve(data);
       });
   }
@@ -188,7 +188,7 @@ private watchAccountUnlock() {
      const data= await   this.staking_escrow.methods.minWorkerPeriods()
           .call();
           console.log(data,'minWorkerPeriods');
-          
+
           resolve(data);
       });
   }
@@ -197,7 +197,7 @@ private watchAccountUnlock() {
      const data= await   this.staking_escrow.methods.getSubStakeInfo(address, index)
           .call();
           console.log(data,'datadatadata');
-          
+
           resolve(data);
       });
   }
@@ -206,7 +206,7 @@ private watchAccountUnlock() {
      const data= await   this.staking_escrow.methods.getSubStakesLength(address)
           .call();
           console.log(data,'datadatadata');
-          
+
           resolve(data);
       });
   }
@@ -215,7 +215,7 @@ private watchAccountUnlock() {
      const data= await    this.staking_escrow.methods.stakerInfo(address)
           .call();
           console.log(data,'datadatadata');
-          
+
           resolve(data);
       });
   }
@@ -225,7 +225,7 @@ private watchAccountUnlock() {
      const data= await    this.staking_escrow.methods.isReStakeLocked(address)
           .call();
           console.log(data,'datadatadata');
-          
+
           resolve(data);
       });
   }
@@ -240,22 +240,22 @@ private watchAccountUnlock() {
         resolve(fromWei);
     });
 }
-//Withdraw reward,  retake, winddown, set worker,  detach worker, prolong "which I will start work on them 
+//Withdraw reward,  retake, winddown, set worker,  detach worker, prolong "which I will start work on them
 
 // change state functions
   async  handleStake(balance,duration) {
       const default_account = (await this.web3.eth.getAccounts())[0];
       // const balance = $('#stake-value').val();
-  
+
       // console.log(staking_escrow_address,'staking_escrow_address');
       // balance = (BigInt(parseFloat(balance) * 1000) *
       //            BigInt('1000000000000000000') / BigInt('1000')).toString();  // how to do this shit better??
   // const allowance=await token.methods.allowance(default_account, staking_escrow_address).call();
   console.log(this.web3.utils.toWei(this.web3.utils.toBN(balance).toString(), 'ether'),'toBN(1234)');
   console.log(this.web3.utils.toBN(balance).toString(),'toBN');
-  
-  return  await this.approveAndCall(this.web3.utils.toWei(this.web3.utils.toBN(balance).toString()),default_account,this.web3.utils.hexToBytes(this.web3.utils.numberToHex(duration))); 
-  
+
+  return  await this.approveAndCall(this.web3.utils.toWei(this.web3.utils.toBN(balance).toString()),default_account,this.web3.utils.hexToBytes(this.web3.utils.numberToHex(duration)));
+
   //  await approve(balance);
   //  await staking_escrow.methods.deposit(balance, duration).send({'from': default_account});
    //await staking_escrow.methods.lock(balance, duration).send({'from': default_account});
@@ -283,7 +283,7 @@ private watchAccountUnlock() {
         .once('transactionHash', function(hash) {resolve(true);});
     });
   }
-  // call getSubStakesLength to get the index first 
+  // call getSubStakesLength to get the index first
   async  prolongStake(index,period) {
     const default_account = (await this.web3.eth.getAccounts())[0];
     return new Promise(resolve => {
@@ -300,13 +300,22 @@ private watchAccountUnlock() {
   }
   // _reStake bool
   async  setReStake(_reStake) {
+    console.warn(_reStake)
     const default_account = (await this.web3.eth.getAccounts())[0];
     return new Promise(resolve => {
         this.staking_escrow.methods.setReStake(_reStake) .send({'from': default_account})
         .once('transactionHash', function(hash) {resolve(true);});
     });
   }
-  //  worker call it 
+  async lockReStake(_lockReStakeUntilPeriod) {
+    console.warn('lockRestake', _lockReStakeUntilPeriod)
+    const default_account = (await this.web3.eth.getAccounts())[0];
+    return new Promise(resolve => {
+        this.staking_escrow.methods.lockReStake(_lockReStakeUntilPeriod) .send({'from': default_account})
+        .once('transactionHash', function(hash) {resolve(true);});
+    });
+  }
+  //  worker call it
   async  confirmActivity() {
     const default_account = (await this.web3.eth.getAccounts())[0];
     return new Promise(resolve => {
@@ -315,7 +324,7 @@ private watchAccountUnlock() {
     });
   }
 
-  // for detatch , pass 0X value 
+  // for detatch , pass 0X value
   async  setWorker(address) {
     const default_account = (await this.web3.eth.getAccounts())[0];
     return new Promise(resolve => {

@@ -127,8 +127,14 @@ console.log(this.subStakeList, 'this.subStakeList');
   async withdraw(value){
 const tx = await this.web3.withdraw(value.amount);
   }
-  async setReStake(){
-const tx = await this.web3.setReStake(!this.isReStakeLocked);
+  async setReStake(value){
+    console.warn('home', value)
+    // const tx = await this.web3.setReStake(!this.isReStakeLocked);
+    const tx = await this.web3.setReStake(value);
+  }
+  async lockReStake(value){
+    console.warn('home', value.lockPeriod)
+    const tx = await this.web3.setReStake(value.lockPeriod);
   }
 
   async prolongStake(value){

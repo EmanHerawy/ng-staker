@@ -30,8 +30,16 @@
               </anms-stake>
             </mat-tab>
             <mat-tab label="MANAGE">
-              <anms-manage (onSetWorker)="setWorker($event)" (onDetachWorker)="detachWorker()" (onReStake)="setReStake()"
-                (onWinddown)="winddown($event)" [isReStakeLocked]="isReStakeLocked" (onDivide)="divideStake($event)" (onProlong)="prolongStake($event)" [data]="subStakeList"></anms-manage>
+              <anms-manage
+                (onSetWorker)="setWorker($event)"
+                (onDetachWorker)="detachWorker()"
+                (onReStake)="setReStake($event)"
+                (onReStakeLock)="lockReStake($event)"
+                (onWinddown)="winddown($event)"
+                [isReStakeLocked]="isReStakeLocked"
+                (onDivide)="divideStake($event)"
+                (onProlong)="prolongStake($event)"
+                [data]="subStakeList"></anms-manage>
             </mat-tab>
             <mat-tab label="WITHDRAW">
               <anms-withdraw (onWithdraw)="withdraw($event)" [TokenToWithdraw]="TokenToWithdraw"  [data]="subStakeList"></anms-withdraw>
