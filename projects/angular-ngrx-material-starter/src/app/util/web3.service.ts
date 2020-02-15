@@ -244,6 +244,7 @@ private watchAccountUnlock() {
 
 // change state functions
   async  handleStake(balance,duration) {
+    console.warn('BYTES', this.hexToBytesFixed(this.web3.utils.numberToHex(duration)))
       const default_account = (await this.web3.eth.getAccounts())[0];
       // const balance = $('#stake-value').val();
 
@@ -254,12 +255,31 @@ private watchAccountUnlock() {
   console.log(this.web3.utils.toWei(this.web3.utils.toBN(balance).toString(), 'ether'),'toBN(1234)');
   console.log(this.web3.utils.toBN(balance).toString(),'toBN');
 
-  return  await this.approveAndCall(this.web3.utils.toWei(this.web3.utils.toBN(balance).toString()),default_account,this.web3.utils.hexToBytes(this.web3.utils.numberToHex(duration)));
+  return  await this.approveAndCall(this.web3.utils.toWei(this.web3.utils.toBN(balance).toString()),default_account,this.hexToBytesFixed(this.web3.utils.numberToHex(duration)));
 
   //  await approve(balance);
   //  await staking_escrow.methods.deposit(balance, duration).send({'from': default_account});
    //await staking_escrow.methods.lock(balance, duration).send({'from': default_account});
   }
+
+  hexToBytesFixed(hex) {
+    hex = hex.toString(16);
+
+    if (!this.web3.utils.isHexStrict(hex)) {
+        throw new Error(`Given value "${hex}" is not a valid hex string.`);
+    }
+
+    hex = hex.replace(/^0x/i, '');
+    hex = hex.length % 2 ? '0' + hex : hex;
+
+    let bytes = [];
+    for (let c = 0; c < hex.length; c += 2) {
+        bytes.push(parseInt(hex.substr(c, 2), 16));
+    }
+
+    return bytes;
+  }
+
   async  setWindDown(status) {
     const default_account = (await this.web3.eth.getAccounts())[0];
     return new Promise(resolve => {
