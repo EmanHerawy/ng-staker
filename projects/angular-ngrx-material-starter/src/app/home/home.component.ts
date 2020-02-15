@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
     this.account = await this.web3.refreshAccounts();
     console.log(  this.account, '  this.account');
    this.balance = await this.web3.getBlance(this.account);
+   this.balance = this.balance.toFixed(2);
    this.fechSmartcontract();
    }
 
@@ -86,7 +87,7 @@ period: stakes['worker']
 const lock1 = await this.web3.getLockedTokens(this.account, 0)
 const lock2 = await this.web3.getLockedTokens(this.account, 1)
 this.TokenToWithdraw = stakes['value'] - Math.max(parseFloat(lock1.toString()),  parseFloat(lock2.toString()))
-this.TokenToWithdraw = this.TokenToWithdraw/10e+17;
+this.TokenToWithdraw = +Number(this.TokenToWithdraw/10e+17).toFixed(2);
 console.log(this.TokenToWithdraw, 'TokenToWithdraw');
 
 await this.getIndex()
