@@ -27,7 +27,7 @@ export class WithdrawComponent implements OnInit {
     });
   }
   withdraw(){
-    this.onWithdraw.emit(this.myForm.value);
+    this.onWithdraw.emit(this.myForm.value * 10e+17);
 
   }
 }
