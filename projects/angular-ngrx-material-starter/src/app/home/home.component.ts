@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
     this.account = await this.web3.refreshAccounts();
     console.log(  this.account, '  this.account');
    this.balance = await this.web3.getBlance(this.account);
-   this.balance = this.balance.toFixed(2);
+   this.balance = Number(this.balance).toFixed(2);
    this.fechSmartcontract();
    }
 
