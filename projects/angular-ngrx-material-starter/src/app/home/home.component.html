@@ -26,7 +26,12 @@
           <mat-tab-group id="main-tab-group" mat-align-tabs="center" class="tab-group">
 
             <mat-tab label="STAKE">
-              <anms-stake (onSave)="saveStake($event)" [isMetamaskConnected]="isMetamaskConnected" [balance]="balance" class=" tab">
+              <anms-stake
+                (onSave)="saveStake($event)"
+                [isMetamaskConnected]="isMetamaskConnected"
+                [balance]="balance"
+                [account]="account"
+                class=" tab">
               </anms-stake>
             </mat-tab>
             <mat-tab label="MANAGE">

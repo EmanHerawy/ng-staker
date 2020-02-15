@@ -17,6 +17,7 @@ export class StakeComponent implements OnInit {
   isEditing: boolean;
   @Input() isMetamaskConnected ;
   @Input() balance;
+  @Input() account;
   @Output() onSave = new EventEmitter<any>();
   constructor(private fb: FormBuilder,private dialog: MatDialog) {
     this.myForm = this.createForm();
@@ -42,7 +43,12 @@ export class StakeComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AgreementComponent, {
-      id: 'agreement-popup'
+      id: 'agreement-popup',
+      data: {
+        account: this.account,
+        amount: this.myForm.value.amount,
+        duration: this.myForm.value.duration,
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
