@@ -75,6 +75,7 @@
           <button
             (click)="detachWorker()"
             mat-raised-button color="primary"
+            [disabled]="!(group2.value)"
             class="btn btn-rounded pt-1 pb-1 pl-5 pr-5 mt-4"
             style="margin-top: 90px !important;">
             Confirm
@@ -145,6 +146,7 @@
             (click)="restake()"
             mat-raised-button
             color="primary"
+            [disabled]="group.value === undefined"
             class="btn btn-rounded pt-1 pb-1 pl-5 pr-5 mt-4"
             style="margin-top: 53px !important;">
             Confirm
@@ -164,6 +166,7 @@
           </div>
 
           <mat-button-toggle-group
+            #group3="matButtonToggleGroup"
             [(value)]="winddownStatus"
             name="winddown-options"
             aria-label="Wind-down options"
@@ -186,6 +189,7 @@
             (click)="winddown()"
             mat-raised-button
             color="primary"
+            [disabled]="group3.value === undefined"
             class="btn btn-rounded pt-1 pb-1 pl-5 pr-5 mt-4"
             style="margin-top: 154px !important;">
             Confirm
