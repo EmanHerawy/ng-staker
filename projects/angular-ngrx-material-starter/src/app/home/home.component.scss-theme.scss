@@ -11,6 +11,19 @@
   }
 
   #main-tab-group {
+    .mat-tab-header {
+      overflow: unset;
+
+      .mat-tab-label-container {
+        position: relative;
+        top: 1px;
+      }
+    }
+
+    .mat-ink-bar {
+      height: 3px;
+    }
+
     .mat-tab-label {
       width: 33.3333%;
     }
