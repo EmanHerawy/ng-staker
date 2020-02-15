@@ -103,7 +103,7 @@ winddown(){
 restake(){
   if(this.restakeStatus === 'lock') {
     console.warn('manage', this.restakeForm.value)
-    const now = new Date();
+    const now: any = new Date();
     const fullDaysSinceEpoch = Math.floor(now/8.64e7);
     console.warn(this.restakeForm.value.lockPeriod >= fullDaysSinceEpoch)
     if(this.restakeForm.value.lockPeriod >= fullDaysSinceEpoch) {
