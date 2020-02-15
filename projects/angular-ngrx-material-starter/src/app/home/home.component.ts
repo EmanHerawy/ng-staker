@@ -134,7 +134,7 @@ const tx = await this.web3.withdraw(value.amount);
   }
   async lockReStake(value){
     console.warn('home', value.lockPeriod)
-    const tx = await this.web3.setReStake(value.lockPeriod);
+    const tx = await this.web3.lockReStake(value.lockPeriod);
   }
 
   async prolongStake(value){
