@@ -21,6 +21,7 @@ export class ManageComponent implements OnInit {
 @Output()onProlong= new EventEmitter<any>();
 @Input()data=[];
 @Input()isReStakeLocked;
+public detachStatus: any;
 public restakeStatus: any;
 public winddownStatus: boolean;
   constructor(private fb: FormBuilder ) {
@@ -31,6 +32,7 @@ public winddownStatus: boolean;
   }
 
   ngOnInit() {
+    this.detachStatus = 'detach';
     this.restakeStatus = false;
     this.winddownStatus = false;
   }
@@ -88,8 +90,11 @@ setWorker(){
 
 }
 detachWorker(){
-  this.onDetachWorker.emit();
-
+  if(this.detachStatus === 'replace') {
+    this.onSetWorker.emit(this.myForm.value);
+  } else {
+    this.onDetachWorker.emit();
+  }
 }
 winddown(){
   this.onWinddown.emit(this.winddownStatus);

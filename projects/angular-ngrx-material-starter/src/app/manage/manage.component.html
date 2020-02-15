@@ -41,6 +41,7 @@
           </button> -->
 
           <mat-button-toggle-group
+            [(value)]="detachStatus"
             #group2="matButtonToggleGroup"
             name="detach-options"
             aria-label="Detach options"
@@ -73,9 +74,8 @@
           </div> -->
 
           <button
-            (click)="setWorker()"
+            (click)="detachWorker()"
             mat-raised-button color="primary"
-            [disabled]="!(myForm.valid)"
             class="btn btn-rounded pt-1 pb-1 pl-5 pr-5 mt-4"
             style="margin-top: 90px !important;">
             Confirm
