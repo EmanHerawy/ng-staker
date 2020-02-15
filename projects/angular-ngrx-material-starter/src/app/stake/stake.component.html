@@ -44,7 +44,7 @@
       (click)="openDialog()"
       mat-raised-button
       color="primary"
-
+      [disabled]="!(myForm.valid && isMetamaskConnected)"
       class="btn btn-rounded pt-1 pb-1 pl-5 pr-5">
       Stake it!
     </button>
