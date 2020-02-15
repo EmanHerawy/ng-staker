@@ -1,7 +1,7 @@
 const packageJson = require('../../../../package.json');
 
 export const environment = {
-  appName: 'Angular Ngrx Material Starter',
+  appName: 'Nucypher Staker App | The place where you can stake your NU',
   envName: 'PROD',
   production: true,
   test: false,
