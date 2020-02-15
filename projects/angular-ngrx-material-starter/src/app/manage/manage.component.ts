@@ -22,6 +22,7 @@ export class ManageComponent implements OnInit {
 @Input()data=[];
 @Input()isReStakeLocked;
 @Input()isReStakeDisabled;
+@Input()isWindDown;
 public detachStatus: any;
 public restakeStatus: any;
 public winddownStatus: boolean;

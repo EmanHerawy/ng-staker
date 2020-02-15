@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   subStakeList: any[];
   isReStakeLocked: any;
   isReStakeDisabled: any;
+  isWindDown: any;
 
   TokenToWithdraw: number;
 
@@ -77,6 +78,7 @@ export class HomeComponent implements OnInit {
 const stakes =    await this.web3.getStakerInfo(this.account);
 this.isReStakeLocked = stakes['isReStakeLocked']
 this.isReStakeDisabled = stakes['reStakeDisabled']
+this.isWindDown = stakes['windDown']
 this.stakeList = {
 worker: stakes['worker'],
 staker: this.account,
