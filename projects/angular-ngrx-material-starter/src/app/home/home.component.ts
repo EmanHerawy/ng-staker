@@ -124,6 +124,7 @@ const substake = await this.web3.getSubStakeInfo(this.account, index);
 substake['value'] = parseInt(substake['lockedValue'], 10) / (10 ** 18)
 substake['worker'] = this.stakeList.worker;
 substake['staker'] = this.account;
+substake['ending'] = new Date((Number(substake['firstPeriod']) + Number(substake['periods'])) * 86400 * 1000).toLocaleDateString('en-US')
 this.subStakeList.push(substake)
 }
 console.log(this.subStakeList, 'this.subStakeList');
