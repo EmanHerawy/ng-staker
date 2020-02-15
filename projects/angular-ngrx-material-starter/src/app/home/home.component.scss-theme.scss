@@ -64,4 +64,16 @@
       }
     }
   }
+
+  table {
+    color: mat-color($foreground, table-text);
+  }
+
+  thead {
+    tr {
+      td {
+        background-color: mat-color($background, table-header);
+      }
+    }
+  }
 }

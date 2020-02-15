@@ -252,24 +252,24 @@ table {
   font-size: 0.7222em;
 }
 
-// thead {
-//   tr {
-//     td {
-//       // padding: 1em 3em;
-//       padding:0.5em 15px;
-//     }
+thead {
+  tr {
+    td {
+      // padding: 1em 3em;
+      padding:0.5em 15px;
+    }
 
-//     &:first-child {
-//       td:first-child {
-//         border-radius: 4em 0 0 4em;
-//       }
+    &:first-child {
+      td:first-child {
+        border-radius: 4em 0 0 4em;
+      }
 
-//       td:last-child {
-//         border-radius: 0 4em 4em 0;
-//       }
-//     }
-//   }
-// }
+      td:last-child {
+        border-radius: 0 4em 4em 0;
+      }
+    }
+  }
+}
 
 td {
         // padding: 1em 3em;
