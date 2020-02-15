@@ -86,6 +86,7 @@ period: stakes['worker']
 const lock1 = await this.web3.getLockedTokens(this.account, 0)
 const lock2 = await this.web3.getLockedTokens(this.account, 1)
 this.TokenToWithdraw = stakes['value'] - Math.max(parseFloat(lock1.toString()),  parseFloat(lock2.toString()))
+this.TokenToWithdraw = this.TokenToWithdraw/10e+17;
 console.log(this.TokenToWithdraw, 'TokenToWithdraw');
 
 await this.getIndex()
