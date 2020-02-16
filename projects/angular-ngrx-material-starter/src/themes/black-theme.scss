@@ -27,21 +27,21 @@ $mat-dark-theme-background: (
 
 $mat-dark-theme-foreground: (
   base:              white,
-  divider:           #6A6A6A,
+  divider:           rgb(134, 134, 134),
   dividers:          $light-dividers,
   disabled:          $light-disabled-text,
   disabled-button:   rgba(white, 0.3),
   disabled-text:     $light-disabled-text,
   elevation:         black,
   hint-text:         $light-disabled-text,
-  secondary-text:    #6A6A6A,
+  secondary-text:    rgb(134, 134, 134),
   icon:              white,
   icons:             white,
-  text:              #6A6A6A,
+  text:              rgb(134, 134, 134),
   slider-min:        white,
   slider-off:        rgba(white, 0.3),
   slider-off-active: rgba(white, 0.3),
-  table-text:      #3F3F3F,
+  table-text:      rgb(99, 99, 99),
 );
 
 $anms-black-theme: mat-dark-theme(

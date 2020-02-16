@@ -1,7 +1,51 @@
 @import './_colors';
 
-$anms-primary: mat-palette($md-blue);
-$anms-accent: mat-palette($mat-light-blue);
-$anms-warn: mat-palette($mat-pink, 600);
+$anms-black-primary: mat-palette($md-blue);
+$anms-black-accent: mat-palette($md-blue);
+$anms-black-warn: mat-palette($mat-red, 500);
 
-$anms-theme: mat-light-theme($anms-primary, $anms-accent, $anms-warn);
+$mat-dark-theme-background: (
+  status-bar: black,
+  app-bar:    map_get($mat-grey, 900),
+  background: #0A0D0E,
+  hover:      rgba(white, 0.04),
+  card:       map_get($mat-grey, 800),
+  dialog:     #303030,
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $light-focused,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+  table-header: #000,
+  dialog-content: #000,
+  list-wallet: #242424,
+  toggle: #2F2F2F,
+);
+
+$mat-dark-theme-foreground: (
+  base:              white,
+  divider:           rgb(134, 134, 134),
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    rgb(134, 134, 134),
+  icon:              white,
+  icons:             white,
+  text:              rgb(134, 134, 134),
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+  table-text:      rgb(99, 99, 99),
+);
+
+$anms-theme: mat-dark-theme(
+  $anms-black-primary,
+  $anms-black-accent,
+  $anms-black-warn
+);
