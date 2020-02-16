@@ -11,7 +11,7 @@ export class AgreementComponent {
   agreement1 = require('../../assets/agreement1.png');
   agreement2 = require('../../assets/agreement2.png');
   constructor(
-    private dialogRef: MatDialogRef<AgreementComponent>,
+    public dialogRef: MatDialogRef<AgreementComponent>,
     @Inject(MAT_DIALOG_DATA) public data) {}
 
   checked = false;

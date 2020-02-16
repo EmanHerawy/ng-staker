@@ -11,17 +11,17 @@ export class WalletPopupComponent implements OnInit {
   keystore= require('../../assets/img/keystore.svg');
   ledger= require('../../assets/img/ledger.svg');
   metamask= require('../../assets/img/metamask-fox.svg');
- 
+
 
   ngOnInit() {
   }
   constructor(
-    private dialogRef: MatDialogRef<WalletPopupComponent>,
+    public dialogRef: MatDialogRef<WalletPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
-  
+
   onWalletSelect(item): void {
     console.log(item,'item');
-    
+
     this.dialogRef.close(item);
   }
 
