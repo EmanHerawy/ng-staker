@@ -131,7 +131,7 @@ console.log(this.subStakeList, 'this.subStakeList');
 
   }
   async withdraw(value){
-    const tx = await this.web3.withdraw((value.amount * 10e+17).toString());
+    const tx = await this.web3.withdraw(value.amount);
   }
   async setReStake(value){
     console.warn('home', value)

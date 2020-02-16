@@ -299,6 +299,7 @@ private watchAccountUnlock() {
   async  withdraw(amount) {
     const default_account = (await this.web3.eth.getAccounts())[0];
     return new Promise(resolve => {
+      amount = this.web3.utils.toWei(amount.toString(), 'ether')
         this.staking_escrow.methods.withdraw(amount).send({'from': default_account})
         .once('transactionHash', function(hash) {resolve(true);});
     });
