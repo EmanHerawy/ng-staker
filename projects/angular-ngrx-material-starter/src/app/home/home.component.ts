@@ -152,6 +152,7 @@ const tx = await this.web3.divideStake(value.index, value.amount.toLocaleString(
 
   async changeTheme() {
     const theme = this.checked ? 'BLACK-THEME' : 'LIGHT-THEME';
-    this.store.dispatch(actionSettingsChangeTheme({ theme }));
+    // FIXME: Turn on theme toggle
+    // this.store.dispatch(actionSettingsChangeTheme({ theme }));
   }
 }
