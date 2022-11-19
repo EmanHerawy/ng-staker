@@ -60,7 +60,7 @@
     "web3": "1.2.6"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.800.1",
+    "@angular-devkit/build-angular": "~15.0.0",
     "@angular/cli": "~8.0.0",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
